@@ -77,6 +77,7 @@ def main():
         existing_df = pd.read_csv(CSV_PATH)
         existing_songs = list(existing_df['Title'])
         [print(album) for album in existing_df.groupby('Album')['Title'].unique().index]
+
     genius = lyricsgenius.Genius(access_token)
     songs = get_songs() if not args.appendpaths else []
     songs_by_album = sort_songs_by_album(genius, songs, existing_songs)
@@ -134,7 +135,7 @@ def sort_songs_by_album(genius, songs, existing_songs=[]):
                         album_name = "Uncategorized"
                     if album_name is None:
                         album_name = ""
-                    lyrics = genius.lyrics(song_data['url'])
+                    lyrics = genius.lyrics(song_url=song_data['url'])
                     # Ensure that
                     if lyrics and has_song_identifier(lyrics) and (
                             album_name or song['title'] in OTHER_SONGS):

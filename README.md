@@ -1,4 +1,6 @@
-# Taylor Swift Lyric Scraper
+# Taylor Swift Lyrics Scraper
+
+Used template provided by @shaynak. https://github.com/shaynak/taylor-swift-lyrics
 
 This dataset includes all Taylor Swift songs and their lyrics for analysis!
 
